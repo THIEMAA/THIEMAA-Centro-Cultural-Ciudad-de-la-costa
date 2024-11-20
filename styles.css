@@ -1,0 +1,274 @@
+/* Estilos generales */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap');
+
+body {
+    font-family: Host Grotesk;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Asegura que ocupen todo el ancho */
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar .logo img {
+    height: 40px; /* Ajusta este valor según el diseño */
+    width: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Evita márgenes extra alrededor de la imagen */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EB9C00; /* Color principal del Centro Cultural */
+    padding: 0px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box; /* Incluir rellenos y bordes en el cálculo del ancho */
+    z-index: 1000; /* Asegura que el navbar quede por encima del contenido */
+}
+
+.navbar .logo a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+/* Alineación de los enlaces a la derecha */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: auto; /* Esto alinea los enlaces a la derecha */
+    flex-wrap: nowrap; /* Asegura que los enlaces no se envuelvan */
+    padding: 0; /* Quita cualquier relleno adicional */
+}
+
+.nav-links li {
+    margin: 0 10px; /* Ajusta el margen entre los elementos */
+    padding: 0; /* Asegura que los elementos no tengan relleno adicional */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    user-select: none;
+    position: relative; /* Para posicionar el pseudo-elemento ::before */
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+
+.nav-links a:hover{
+    color: #C81D24;
+}
+
+/* Efecto de subrayado animado */
+.nav-links a::before {
+    content: '';
+    display: block;
+    height: 3px; /* Altura del subrayado */
+    background-color: #C81D24; /* Color del subrayado */
+    position: absolute;
+    bottom: 0; /* Ubicación del subrayado */
+    left: 0;
+    width: 0; /* Comienza invisible */
+    transition: all ease-in-out 250ms;
+}
+
+.nav-links a:hover::before {
+    width: 100%; /* Expande el subrayado al ancho completo */
+    color: #C81D24;
+}
+
+/* Ícono de hamburguesa */
+.hamburger {
+    display: none; /* Ocultamos el ícono en pantallas grandes */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    margin: 2px 0;
+    background-color: white;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Ocultamos los enlaces por defecto */
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #C91F24;
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex; 
+    }
+
+    .hamburger {
+        display: flex; 
+    }
+}
+
+.main-content {
+    margin-top: 80px; 
+    padding: 20px; 
+}
+
+.hero {
+    background-image: url('img/fachadacentro.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo negro transparente */
+    z-index: 1; 
+}
+
+.hero .hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2; 
+}
+
+.hero .hero-content p {
+    font-size: 1.5rem;
+    z-index: 1;
+    color: white;
+    position: relative;
+}
+
+.actividadestitulo {
+    position: relative;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.eventos {
+    padding: 40px;
+    background-color: #f4f4f4; /* Fondo gris claro para la sección de eventos */
+    text-align: center;
+}
+
+.eventos h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.eventos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre las imágenes */
+}
+
+.evento {
+    width: 600px;
+    text-align: center;
+}
+
+.evento img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+}
+
+.evento p {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #333; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 20px 0; /* Espaciado superior e inferior */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido */
+    padding: 20px;
+    gap: 20px; /* Espaciado entre secciones */
+}
+
+.footer-section {
+    flex: 1; /* Todas las secciones tienen el mismo ancho */
+    min-width: 250px; /* Ancho mínimo para no colapsar */
+}
+
+.footer-section h3,
+.footer-section h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #EB9C00; /* Cambia de color al pasar el cursor */
+}
+
+.footer-section .social-icons a {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.footer-section .social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #222; /* Color más oscuro para la franja inferior */
+    font-size: 0.9rem;
+}
+
